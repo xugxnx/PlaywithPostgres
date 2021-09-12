@@ -24,7 +24,7 @@ Use credentials:
     user@example.com
     password
 
-**The connection to the PostgreSQL server is already configured, no password is required. The demo database (named SQL Foundation) is added automatically.**
+**The connection to the PostgreSQL server (named SQL Foundation) is already configured, no password is required. The demo database is added automatically.**
 ### PostgreSQL server credentials (if required):
 
     postgres

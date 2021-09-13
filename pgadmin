@@ -1,6 +1,9 @@
 FROM dpage/pgadmin4
-USER root
-RUN mkdir -p /var/lib/pgadmin/storage/user_example.com
-COPY --chown=pgadmin:pgadmin ./pgpass /var/lib/pgadmin/storage/user_example.com/
+COPY --chown=pgadmin:pgadmin ./pgpass /tmp/ 
 COPY --chown=pgadmin:pgadmin ./servers.json /pgadmin4/
+USER root
+RUN sed -i '2i chmod 600 /tmp/pgpass &&\
+    mkdir -p /var/lib/pgadmin/storage/user_example.com &&\
+    mv /tmp/pgpass /var/lib/pgadmin/storage/user_example.com/pgpass'\
+    /entrypoint.sh
 USER pgadmin
